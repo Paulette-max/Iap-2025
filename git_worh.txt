@@ -1,0 +1,5 @@
+# Git Workflow
+1. git status
+2. git add .
+3. git commit -m "Added numbered list of users and git workflow file"
+4. git push origin main
