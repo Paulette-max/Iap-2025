@@ -10,100 +10,109 @@ class Layouts {
       <meta name="description" content="">
       <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
       <meta name="generator" content="Astro v5.13.2">
-      <title>Jumbotron example · Bootstrap v5.3</title>
-      <link href="https://getbootstrap.com/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet">
-      <meta name="theme-color" content="#712cf9">
+      <title><?php echo $conf['site_name']; ?></title>
+      <link href="<?php echo $conf['site_url']; ?>/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
    </head>
 <?php
     }
     public function navbar($conf) {
 ?>
    <body>
-
-      <main>
-         <div class="container py-4">
-            <header class="pb-3 mb-4 border-bottom">
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Fifth navbar example">
-            <div class="container-fluid">
-               <a class="navbar-brand" href="#">Expand at lg</a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> 
-               <div class="collapse navbar-collapse" id="navbarsExample05">
-                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                     <li class="nav-item"> <a class="nav-link active" aria-current="page" href="./">Home</a> </li>
-                     <li class="nav-item"> <a class="nav-link" href="signup.php">Sign Up</a> </li>
-                     <li class="nav-item"> <a class="nav-link" href="signin.php">Sign In</a> </li>
-
-                  </ul>
-                  <form role="search"> <input class="form-control" type="search" placeholder="Search" aria-label="Search"> </form>
-               </div>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
+         <div class="container-fluid">
+            <a class="navbar-brand fw-bold text-primary" href="./"><?php echo $conf['site_name']; ?></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNavbar">
+               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item"><a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'index.php') ? 'active fw-bold' : ''; ?>" href="./">Home</a></li>
+                  <li class="nav-item"><a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'signup.php') ? 'active fw-bold' : ''; ?>" href="signup.php">Sign Up</a></li>
+                  <li class="nav-item"><a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'signin.php') ? 'active fw-bold' : ''; ?>" href="signin.php">Sign In</a></li>
+               </ul>
+               <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-primary" type="submit">Search</button>
+               </form>
             </div>
-         </nav>
-            </header>
+         </div>
+      </nav>
+      <main class="container py-4">
 <?php
     }
 
     public function banner($conf) {
-        ?>
-            <div class="p-5 mb-4 bg-body-tertiary rounded-3">
-               <div class="container-fluid py-5">
-                  <h1 class="display-5 fw-bold">Custom jumbotron</h1>
-                  <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
-                  <button class="btn btn-primary btn-lg" type="button">Example button</button> 
-               </div>
+?>
+         <div class="p-5 mb-4 bg-gradient rounded-3 text-black" style="background: linear-gradient(135deg, #0d6efd, #6610f2);">
+            <div class="container-fluid py-5">
+               <h1 class="display-4 fw-bold">Welcome to <?php echo $conf['site_name']; ?></h1>
+               <p class="col-md-8 fs-5">Build modern interfaces quickly with Bootstrap’s utilities and components. Customize this banner however you like.</p>
+               <button class="btn btn-light btn-lg" type="button">Join Now</button>
             </div>
-        <?php
+         </div>
+<?php
     }
     public function content($conf) {
-        ?>
-                <div class="row align-items-md-stretch">
-               <div class="col-md-6">
-                  <div class="h-100 p-5 text-bg-dark rounded-3">
-                     <h2>Change the background</h2>
-                     <p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look. Then, mix and match with additional component themes and more.</p>
-                     <button class="btn btn-outline-light" type="button">Example button</button> 
-                  </div>
-               </div>
-               <div class="col-md-6">
-                  <div class="h-100 p-5 bg-body-tertiary border rounded-3">
-                     <h2>Add borders</h2>
-                     <p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of both column's content for equal-height.</p>
-                     <button class="btn btn-outline-secondary" type="button">Example button</button> 
+?>
+         <div class="row g-4">
+            <div class="col-md-6">
+               <div class="card shadow-sm h-100">
+                  <div class="card-body">
+                     <h2 class="card-title">Fresh Layouts</h2>
+                     <p class="card-text">Mix Bootstrap’s cards, grids, and utility classes for a fresh new look without heavy customization.</p>
+                     <button class="btn btn-primary" type="button">Example button</button>
                   </div>
                </div>
             </div>
-        <?php
-
+            <div class="col-md-6">
+               <div class="card border-secondary h-100">
+                  <div class="card-body">
+                     <h2 class="card-title">Flexible Design</h2>
+                     <p class="card-text">This section uses cards with shadows and borders instead of background blocks, giving a more modern, app-like style.</p>
+                     <button class="btn btn-outline-secondary" type="button">Example button</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+<?php
     }
-    public function form_content($conf, $ObjForm) {
-        ?>
-                <div class="row align-items-md-stretch">
-               <div class="col-md-6">
-                  <div class="h-100 p-5 text-bg-light rounded-3">
-<?php if($_SERVER['PHP_SELF'] == '/tol/signup.php') { $ObjForm->signup(); }else{ $ObjForm->signin();} ?>
-                  </div>
-               </div>
-               <div class="col-md-6">
-                  <div class="h-100 p-5 bg-body-tertiary border rounded-3">
-                     <h2>Add borders</h2>
-                     <p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of both column's content for equal-height.</p>
-                     <button class="btn btn-outline-secondary" type="button">Example button</button> 
+    public function form_content($conf, $ObjForm, $ObjFncs) {
+?>
+         <div class="row g-4">
+            <div class="col-md-6">
+               <div class="card bg-dark text-white h-100 shadow">
+                  <div class="card-body">
+                     <?php 
+                        if(basename($_SERVER['PHP_SELF']) == 'signup.php') { 
+                           $ObjForm->signup($conf, $ObjFncs); 
+                        } else { 
+                           $ObjForm->signin($conf, $ObjFncs); 
+                        } 
+                     ?>
                   </div>
                </div>
             </div>
-        <?php
-
+            <div class="col-md-6">
+               <div class="card border h-100 shadow-sm">
+                  <div class="card-body">
+                     <h2 class="card-title">Why Join?</h2>
+                     <p class="card-text">Sign up to access exclusive features, or sign in if you already have an account. Simple, clean, and effective design.</p>
+                     <button class="btn btn-outline-secondary" type="button">Learn More</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+<?php
     }
     public function footer($conf) {
 ?>
-
-            <footer class="pt-3 mt-4 text-body-secondary border-top">
-            <p>Copyrights &copy; <?php echo date("Y") . " {$conf['site_name']}. All rights reserved.</p>"; ?>
-            </footer>
-         </div>
+         <footer class="pt-4 mt-5 border-top text-center text-muted small">
+            <p>&copy; <?php echo date("Y") . " {$conf['site_name']}"; ?>. All rights reserved.</p>
+         </footer>
       </main>
-      <script src="https://getbootstrap.com/docs/5.3/dist/js/bootstrap.bundle.min.js" class="astro-vvvwv3sm"></script>
+      <script src="<?php echo $conf['site_url']; ?>/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
    </body>
 </html>
-
 <?php
     }
 }
